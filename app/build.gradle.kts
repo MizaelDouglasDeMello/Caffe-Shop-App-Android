@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -42,28 +43,42 @@ android {
 }
 
 dependencies {
-    //Dependências Hilt (dagger)
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    // SQLite
+    implementation("androidx.sqlite:sqlite-ktx:2.4.0")
+
+    // Hilt (Dagger)
     implementation("com.google.dagger:hilt-android:2.52")
     kapt("com.google.dagger:hilt-compiler:2.52")
 
-    //Picasso
+    // Firebase
+    implementation(libs.firebase.firestore)
+    implementation("com.google.android.gms:play-services-auth:20.6.0")
+
+    // Picasso
     implementation(libs.picasso)
 
-    //Retrofit
+    // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-    //KTX Fragment
+    // KTX Fragment
     implementation(libs.androidx.fragment.ktx)
 
-    // androidx lifecycle
+    // AndroidX Lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
+    // AndroidX Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
