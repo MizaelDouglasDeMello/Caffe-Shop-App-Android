@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="275dp"
         android:background="#111111"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,8 +79,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_text_input"
                 android:drawableStart="@drawable/ic_search_24"
-                android:textColor="@color/white"
-                android:hint="Search coffee" />
+                android:hint="Search coffee"
+                android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -137,6 +137,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -149,7 +150,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="fill_horizontal"
             android:orientation="horizontal"
@@ -159,8 +160,8 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:layout_marginEnd="8dp"
+                android:layout_weight="0"
                 android:background="@drawable/rounded_button_config"
                 android:fontFamily="@font/sora_semibold"
                 android:padding="10dp"
@@ -216,5 +217,16 @@
 
         </LinearLayout>
     </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        tools:listitem="@layout/item_coffee" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

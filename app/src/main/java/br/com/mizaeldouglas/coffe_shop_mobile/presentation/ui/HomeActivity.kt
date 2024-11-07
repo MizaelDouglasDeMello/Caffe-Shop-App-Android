@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import br.com.mizaeldouglas.coffe_shop_mobile.R
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mizaeldouglas.coffe_shop_mobile.databinding.ActivityHomeBinding
+import br.com.mizaeldouglas.coffe_shop_mobile.presentation.adapter.CoffeeAdapter
 import br.com.mizaeldouglas.coffe_shop_mobile.presentation.viewmodel.CoffeeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,18 +24,13 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        val coffeeAdapter = CoffeeAdapter(emptyList())
+        binding.rvHome.adapter = coffeeAdapter
+        binding.rvHome.layoutManager = GridLayoutManager(this, 2)
 
         coffeeViewModel.coffees.observe(this) { listCoffee ->
-            var listResult = ""
-            listCoffee.forEach { coffee ->
-                listResult += "${coffee.name}\n ${coffee.description}\n ${coffee.price}\n\n"
-            }
-//            binding.txtCoffes.text = listResult
+            coffeeAdapter.updateData(listCoffee)
         }
     }
 }
