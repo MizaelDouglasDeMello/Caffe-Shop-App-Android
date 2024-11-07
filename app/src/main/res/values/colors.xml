@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="coffee">#c67c4e</color>
+    <color name="coffeeBrownLight">#EDD6c8</color>
+    <color name="coffeeGrayDark">#313131</color>
+    <color name="coffeeGrayLight">#E3E3E3</color>
+    <color name="coffeeBrownLightWhite">#F5F5F5</color>
+    <color name="normalActive">#D8D8D8</color>
+    <color name="lighter">#A2A2A2</color>
 </resources>

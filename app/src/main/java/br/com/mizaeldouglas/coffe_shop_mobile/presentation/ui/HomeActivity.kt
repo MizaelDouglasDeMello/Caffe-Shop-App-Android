@@ -11,6 +11,7 @@ import br.com.mizaeldouglas.coffe_shop_mobile.databinding.ActivityHomeBinding
 import br.com.mizaeldouglas.coffe_shop_mobile.presentation.viewmodel.CoffeeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
@@ -33,9 +34,9 @@ class HomeActivity : AppCompatActivity() {
         coffeeViewModel.coffees.observe(this) { listCoffee ->
             var listResult = ""
             listCoffee.forEach { coffee ->
-                listResult += "${coffee.name}\n"
+                listResult += "${coffee.name}\n ${coffee.description}\n ${coffee.price}\n\n"
             }
-            binding.txtCoffes.text = listResult
+//            binding.txtCoffes.text = listResult
         }
     }
 }

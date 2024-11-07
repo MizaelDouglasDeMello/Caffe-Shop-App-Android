@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import br.com.mizaeldouglas.coffe_shop_mobile.domain.model.Coffee
 import br.com.mizaeldouglas.coffe_shop_mobile.domain.model.Type
 import br.com.mizaeldouglas.coffe_shop_mobile.domain.useCase.GetCoffeeUseCase
-import br.com.mizaeldouglas.coffe_shop_mobile.domain.useCase.GetInsertSampleCoffees
+import br.com.mizaeldouglas.coffe_shop_mobile.domain.useCase.InsertSampleCoffees
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CoffeeViewModel @Inject constructor(
     private val getCoffeeUseCase: GetCoffeeUseCase,
-    private val getInsertSampleCoffees: GetInsertSampleCoffees
+    private val insertSampleCoffees: InsertSampleCoffees
 ) : ViewModel() {
 
     private val _coffees = MutableLiveData<List<Coffee>>()
@@ -40,8 +40,8 @@ class CoffeeViewModel @Inject constructor(
 
     private fun insertSampleData() {
         viewModelScope.launch {
-            getInsertSampleCoffees.invoke()
-            getCoffees() // Chama getCoffees após a inserção dos dados
+            insertSampleCoffees.invoke()
+            getCoffees()
         }
     }
 
@@ -52,14 +52,3 @@ class CoffeeViewModel @Inject constructor(
         }
     }
 }
-
-
-//
-//private fun getFakeCoffees() {
-//    val fakeCoffees = listOf(
-//        Coffee(1, "Espresso", "Strong and bold coffee", 2.5, "image_url_1", Type(1, "Coffee")),
-//        Coffee(2, "Latte", "Smooth and creamy coffee", 3.0, "image_url_2", Type(1, "Coffee")),
-//        Coffee(3, "Cappuccino", "Rich and foamy coffee", 3.5, "image_url_3", Type(1, "Coffee"))
-//    )
-//    _coffees.postValue(fakeCoffees)
-//}

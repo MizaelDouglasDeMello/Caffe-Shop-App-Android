@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-    alias(libs.plugins.google.gms.google.services)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,6 +43,8 @@ android {
 }
 
 dependencies {
+
+    implementation("com.google.android.material:material:1.12.0")
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
@@ -56,7 +58,7 @@ dependencies {
 
     // Firebase
     implementation(libs.firebase.firestore)
-    implementation("com.google.android.gms:play-services-auth:20.6.0")
+    implementation("com.google.android.gms:play-services-base:18.5.0")
 
     // Picasso
     implementation(libs.picasso)

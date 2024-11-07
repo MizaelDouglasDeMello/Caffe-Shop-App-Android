@@ -8,12 +8,19 @@ import javax.inject.Inject
 class GetCoffeeUseCase @Inject constructor(private val repository: ICoffeRepository) {
     suspend operator fun invoke(): List<Coffee> {
         return try {
-            val coffees = repository.getCoffees()
-            Log.i("getCoffees", "invoke: ${coffees.toList()}")
-            coffees
+            val coffeeDTOs = repository.getCoffees()
+            coffeeDTOs.map { dto ->
+                Coffee(
+                    id = dto.id,
+                    name = dto.name,
+                    description = dto.description,
+                    price = dto.price,
+                    image = dto.image,
+                    type = dto.type
+                )
+            }
         } catch (e: Exception) {
             e.printStackTrace()
-            Log.i("getCoffees", "invoke: ${e.message}")
             emptyList()
         }
     }
