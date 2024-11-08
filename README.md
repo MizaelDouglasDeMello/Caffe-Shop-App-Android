@@ -2,6 +2,11 @@
 
 Coffee Shop Mobile é um aplicativo de loja de café, desenvolvido em Kotlin para a plataforma Android. O projeto segue a Arquitetura MVVM e Clean Architecture, utilizando várias tecnologias e bibliotecas modernas, como Firebase Firestore para armazenamento de dados, Hilt para injeção de dependência, e outras ferramentas essenciais para desenvolvimento de apps robustos e escaláveis.
 
+## Figma
+
+![Selecionado novembro 08 2024 14:33:23](https://github.com/user-attachments/assets/94ad6d65-de18-4aa5-b1d9-d178740f7488)
+
+
 ## Funcionalidades
 
 - Exibição de um catálogo de cafés em um layout de grade.
@@ -53,3 +58,12 @@ O projeto segue a estrutura padrão do MVVM com Clean Architecture, com separaç
 
 ###   Build e Execução
 - Para compilar e rodar o aplicativo, selecione o dispositivo desejado no Android Studio e clique em "Run" e configurar o **firebase**.
+
+### Projeto Finalizado
+
+
+https://github.com/user-attachments/assets/5d067bb1-e16f-48bb-ac21-7235f3a690c4
+
+
+
+
